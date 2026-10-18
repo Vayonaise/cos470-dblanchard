@@ -58,13 +58,15 @@
     const program = createProgram(gl, vertexSource, fragmentSource);
 
     // Interleaved: x, y, r, g, b per vertex.
+    //the seams are due to the object being made of 3 triangles,
+    //the blending doesn't work between their areas due to being separate renders
     const data = new Float32Array([
-      -0.6, -0.6,  1, 1, 0,
-       0.6, -0.6,  0, 1, 0,
+      -0.6, -0.6,  0, 0, 1,
+       0.6, -0.6,  0, 1, 1,
        0.6,  0.6,  1, 0, 1,
       -0.6, -0.6,  1, 1, 0,
-       0.6,  0.6,  1, 0, 1,
-      -0.6,  0.6,  1, 0, 0,
+       0.6,  0.6,  1, 0, 0,
+      -0.6,  0.6,  0, 1, 0,
       -0.6,  0.6,  1, 0, 0,
        0.6,  0.6,  1, 0, 1,
        0.0,  1.0,  1, 1, 1,
