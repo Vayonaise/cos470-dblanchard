@@ -59,15 +59,15 @@
 
     // Interleaved: x, y, r, g, b per vertex.
     const data = new Float32Array([
-      -0.6, -0.6,  1, 0, 0,
+      -0.6, -0.6,  1, 1, 0,
        0.6, -0.6,  0, 1, 0,
-       0.6,  0.6,  0, 0, 1,
-      -0.6, -0.6,  1, 0, 0,
-       0.6,  0.6,  0, 0, 1,
-      -0.6,  0.6,  1, 1, 0,
-      -0.6,  0.6,  1, 1, 0,
-       0.6,  0.6,  0, 0, 1,
-      0.0,   1.0,  1, 1, 1,
+       0.6,  0.6,  1, 0, 1,
+      -0.6, -0.6,  1, 1, 0,
+       0.6,  0.6,  1, 0, 1,
+      -0.6,  0.6,  1, 0, 0,
+      -0.6,  0.6,  1, 0, 0,
+       0.6,  0.6,  1, 0, 1,
+       0.0,  1.0,  1, 1, 1,
     ]);
     const buffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
@@ -86,7 +86,7 @@
     gl.enableVertexAttribArray(aColor);
     gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, stride, 2 * F);
     //position still at 0, color still at 8, OK 
-    
+
     const VERTEX_COUNT = 9;
 
     function render() {
